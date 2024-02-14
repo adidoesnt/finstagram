@@ -8,17 +8,17 @@ export const createUser = async (
     return User.create({ email, passwordHash, verified: false });
 };
 
-export const getUser = async (uuid: string): Promise<AnyItem> => {
-    return User.get(uuid);
+export const getUser = async (email: string): Promise<AnyItem> => {
+    return User.get(email);
 };
 
 export const updateUser = async (
-    uuid: string,
-    user: Partial<typeof User>,
+    email: string,
+    data: Partial<typeof User>,
 ): Promise<AnyItem> => {
-    return User.update({ uuid }, user);
+    return User.update(email, data);
 };
 
-export const deleteUser = async (uuid: string): Promise<void> => {
-    await User.delete(uuid);
+export const deleteUser = async (email: string): Promise<void> => {
+    await User.delete(email);
 };

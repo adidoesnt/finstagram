@@ -31,7 +31,7 @@ export const sendConfirmationEmail = async (
         const subject = "Welcome to Finstagram!";
         let text =
             "You're almost done creating your account - we just need you to confirm your email address.";
-        text += `"Click the link below to confirm your email address:\n${confirmationEndpoint}?email=${email}`;
+        text += `Click the link below to confirm your email address:\n${confirmationEndpoint}?email=${email}`;
         return await sendEmail(email, subject, text);
     } catch (error) {
         logger.error("unable to send confirmation email", error);
