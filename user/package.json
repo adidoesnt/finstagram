@@ -1,18 +1,19 @@
 {
-    "name": "user",
-    "version": "1.0.50",
-    "scripts": {
-        "dev": "bun run --watch src/index.ts",
-        "start": "bun run src/index.ts",
-        "format": "prettier --write ."
-    },
-    "dependencies": {
-        "elysia": "latest",
-        "log4js": "^6.9.1"
-    },
-    "devDependencies": {
-        "bun-types": "latest",
-        "prettier": "^3.2.5"
-    },
-    "module": "src/index.js"
+  "name": "user",
+  "version": "1.0.50",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "dynamoose": "^4.0.0",
+    "elysia": "latest",
+    "log4js": "^6.9.1"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "prettier": "^3.2.5"
+  },
+  "module": "src/index.js"
 }
