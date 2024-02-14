@@ -14,9 +14,10 @@ export const createUser = async (user: typeof User) => {
 
 export const confirmUser = async (email: string | undefined) => {
     try {
+        logger.info(`Confirming user: ${email}`);
         return await userService.confirmUser(email);
     } catch (error) {
-        logger.error(error);
+        logger.error(`Unable to confirm user ${email}`, error);
     }
 };
 
