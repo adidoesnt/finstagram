@@ -1,0 +1,7 @@
+{
+  "name": "dynamodb",
+  "scripts": {
+    "build": "docker build -t dynamodb:latest .",
+    "start": "docker run --env-file .env -d -p 8000:8000 dynamodb:latest"
+  }
+}
