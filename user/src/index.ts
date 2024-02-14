@@ -1,5 +1,5 @@
 import { Elysia } from "elysia";
-import { docs, health } from "plugins";
+import { docs, health, signup } from "plugins";
 import { getLogger, initDb } from "utils";
 
 const { PORT: port = 3001 } = process.env;
@@ -10,6 +10,7 @@ const app = new Elysia({
 })
     .use(docs)
     .use(health)
+    .use(signup)
     .listen(port);
 
 const { server } = app;

@@ -1,8 +1,11 @@
 import { AnyItem } from "dynamoose/dist/Item";
 import { User } from "./model";
 
-export const createUser = async (user: typeof User): Promise<AnyItem> => {
-    return User.create(user);
+export const createUser = async (
+    email: string,
+    passwordHash: string,
+): Promise<AnyItem> => {
+    return User.create({ email, passwordHash, verified: false });
 };
 
 export const getUser = async (uuid: string): Promise<AnyItem> => {
@@ -11,7 +14,7 @@ export const getUser = async (uuid: string): Promise<AnyItem> => {
 
 export const updateUser = async (
     uuid: string,
-    user: typeof User,
+    user: Partial<typeof User>,
 ): Promise<AnyItem> => {
     return User.update({ uuid }, user);
 };

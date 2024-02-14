@@ -1,18 +1,33 @@
+import { getLogger } from "utils";
 import { User } from "./model";
 import * as userService from "./service";
 
+const logger = getLogger("user:controller");
+
 export const createUser = async (user: typeof User) => {
-    return await userService.createUser(user);
+    const { email, password } = user;
+    return await userService.createUser({
+        email,
+        password,
+    } as unknown as typeof User);
 };
 
-export const getUser = async (uuid: string) => {
-    return await userService.getUser(uuid);
+export const confirmUser = async (email: string | undefined) => {
+    try {
+        return await userService.confirmUser(email);
+    } catch (error) {
+        logger.error(error);
+    }
 };
 
-export const updateUser = async (uuid: string, user: typeof User) => {
-    return await userService.updateUser(uuid, user);
+export const getUser = async (email: string) => {
+    return await userService.getUser(email);
 };
 
-export const deleteUser = async (uuid: string) => {
-    return await userService.deleteUser(uuid);
+export const updateUser = async (email: string, user: typeof User) => {
+    return await userService.updateUser(email, user);
+};
+
+export const deleteUser = async (email: string) => {
+    return await userService.deleteUser(email);
 };

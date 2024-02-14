@@ -7,11 +7,13 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.513.0",
     "dynamoose": "^4.0.0",
     "elysia": "latest",
     "log4js": "^6.9.1"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.14",
     "bun-types": "latest",
     "prettier": "^3.2.5"
   },
